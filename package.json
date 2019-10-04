@@ -1,7 +1,7 @@
 {
-  "name": "imset",
+  "name": "get-set-json",
   "version": "0.0.1",
-  "description": "Immutable setter and getter library",
+  "description": "Immutable setter and getter library that works on JSON data",
   "main": "build/index.js",
   "scripts": {
     "build": "webpack",
@@ -15,13 +15,14 @@
   "author": "Vijey Narayanaswamy <vijeysrc@gmail.com> (https://github.com/vijeysrc)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vijeysrc/imset/issues"
+    "url": "https://github.com/vijeysrc/get-set-json/issues"
   },
-  "homepage": "https://github.com/vijeysrc/imset",
+  "homepage": "https://github.com/vijeysrc/get-set-json",
   "keywords": [
     "immutable",
     "setter",
-    "getter"
+    "getter",
+    "json"
   ],
   "devDependencies": {
     "@babel/cli": "^7.4.4",

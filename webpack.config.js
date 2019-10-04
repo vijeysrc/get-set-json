@@ -28,7 +28,7 @@ module.exports = {
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'build'),
-    library: 'imset',
+    library: 'get-set-json',
     libraryTarget: 'umd'
   },
   module: {
