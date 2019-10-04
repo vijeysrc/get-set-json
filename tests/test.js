@@ -14,6 +14,11 @@ describe('Get - the main getter function', () => {
   test('should return null on failure when the default value is not specified', () => {
     expect(get(data_1, ['a', 'b', 'c', 'dx', 'e', 'f1'])).toBeNull()
   })
+
+  test('should work well with arrays on the way', () => {
+    expect(get(data_2, ['a', 'b', 'c', 1])).toBe('a string')
+    expect(get(data_2, ['a', 'b', 'c', 3, 1, 'name'])).toBe('JavaScript')
+  })
 })
 
 describe('Set - the main setter function', () => {
@@ -28,9 +33,11 @@ describe('Set - the main setter function', () => {
   })
 
   test('should work with arrays on the way', () => {
-    const setObj = set(data_2, ['a', 'b', 'c', 2, 'd'], 'Greetings')
+    const setObj = set(data_2, ['a', 'b', 'c', 2, 'd'], 'Greetings'),
+      setObj2 = set(data_2, ['a', 'b', 'c', 3, 1, 'name'], 'React')
 
     expect(get(setObj, ['a', 'b', 'c', 2, 'd'])).toBe('Greetings')
     expect(get(setObj, ['a', 'b', 'c'])).toBeInstanceOf(Array)
+    expect(get(setObj2, ['a', 'b', 'c', 3, 1, 'name'])).toBe('React')
   })
 })
