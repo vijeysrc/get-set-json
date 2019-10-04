@@ -1,4 +1,4 @@
-import { isObject, isArray } from './utils'
+import { isInteger, isString, isObject, isArray } from './utils'
 
 const get = (obj, keys = [], returnOnFailureValue = undefined) =>
     keys.reduce(
@@ -19,12 +19,22 @@ const get = (obj, keys = [], returnOnFailureValue = undefined) =>
           }
         }
 
-        if (isArray(setLevel) && !isNaN(currPathItem)) {
+        if (isArray(setLevel) && isInteger(+currPathItem)) {
           const keyAsNum = +currPathItem
 
           return Object.assign([...setLevel], {
             [keyAsNum]: result
           })
+        }
+
+        if (setLevel === undefined) {
+          return isString(currPathItem)
+            ? {
+                [currPathItem]: result
+              }
+            : Object.assign([], {
+                [currPathItem]: result
+              })
         }
 
         return result
