@@ -1,5 +1,5 @@
 import { get, set } from '../src/index'
-import { data_1, data_2 } from './data'
+import { data_1, data_2, data_3 } from './data'
 import { vo } from '../src/utils'
 
 describe('Get - the main getter function', () => {
@@ -18,6 +18,12 @@ describe('Get - the main getter function', () => {
   test('should work well with arrays on the way', () => {
     expect(get(data_2, ['a', 'b', 'c', 1])).toBe('a string')
     expect(get(data_2, ['a', 'b', 'c', 3, 1, 'name'])).toBe('JavaScript')
+  })
+
+  test('should work with arrays', () => {
+    expect(get(data_3, [2])).toBe('two')
+    expect(get(data_3, [5])).toBe('five')
+    expect(get(data_3, [7])).toBe('seven')
   })
 })
 

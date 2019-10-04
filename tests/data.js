@@ -31,6 +31,19 @@ const data_1 = Object.freeze({
         ]
       }
     }
-  })
+  }),
+  data_3 = Object.freeze([
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+    'ten'
+  ])
 
-export { data_1, data_2 }
+export { data_1, data_2, data_3 }
