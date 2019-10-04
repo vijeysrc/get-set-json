@@ -1,6 +1,6 @@
 import { isObject, isArray } from './utils'
 
-const get = (obj, keys = [], returnOnFailureValue = null) =>
+const get = (obj, keys = [], returnOnFailureValue = undefined) =>
     keys.reduce(
       (acc, key) => (acc && acc[key] ? acc[key] : returnOnFailureValue),
       obj
