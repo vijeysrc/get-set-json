@@ -1,4 +1,4 @@
-import { isInteger, isString, isObject, isArray } from './utils'
+import { isInteger, isString, isObject, isArray, currify } from './utils'
 
 const _get = (path = [], inputJson, returnOnFailureValue = undefined) =>
     path.reduce(
@@ -8,8 +8,8 @@ const _get = (path = [], inputJson, returnOnFailureValue = undefined) =>
           : returnOnFailureValue,
       inputJson
     ),
-  get = (...args) =>
-    args.length < 2 ? get.bind(this, ...args) : _get.apply(this, [...args]),
+  _getd = (inputJson, path = [], returnOnFailureValue = undefined) =>
+    _get(path, inputJson, returnOnFailureValue),
   _set = (path = [], value, inputJson) =>
     [...path]
       .reverse()
@@ -46,7 +46,10 @@ const _get = (path = [], inputJson, returnOnFailureValue = undefined) =>
 
         return result
       }, value),
-  set = (...args) =>
-    args.length < 3 ? set.bind(this, ...args) : _set.apply(this, [...args])
+  _setd = (inputJson, path = [], value) => _set(path, value, inputJson),
+  get = currify(_get, 2),
+  getd = currify(_getd, 2),
+  set = currify(_set, 3),
+  setd = currify(_setd, 3)
 
-export { get, set }
+export { get, getd, set, setd }

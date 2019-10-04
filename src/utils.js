@@ -4,6 +4,15 @@ const vo = inputObject => console.log(JSON.stringify(inputObject, null, 2)), // 
     typeof input === 'number' && isFinite(input) && Math.floor(input) === input,
   isArray = input => Array.isArray(input),
   isObject = input =>
-    !isArray(input) && input !== null && typeof input === 'object'
+    !isArray(input) && input !== null && typeof input === 'object',
+  currify = function(fn, mandatoryArgumentCount = fn.length) {
+    return function curryInner() {
+      const args = Array.prototype.slice.call(arguments)
 
-export { vo, isString, isInteger, isArray, isObject }
+      return args.length < mandatoryArgumentCount
+        ? curryInner.bind(null, ...args)
+        : fn.apply(null, args)
+    }
+  }
+
+export { vo, isString, isInteger, isArray, isObject, currify }
