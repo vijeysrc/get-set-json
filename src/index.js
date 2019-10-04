@@ -12,24 +12,24 @@ const _get = (obj, keys = [], returnOnFailureValue = undefined) =>
       .reverse()
       .reduce((result, currPathItem, currPathIndex, givenPathReversed) => {
         const headList = givenPathReversed.slice(currPathIndex + 1).reverse(),
-          setLevel = get(inputObject, headList)
+          dataHere = get(inputObject, headList)
 
-        if (isObject(setLevel)) {
+        if (isObject(dataHere)) {
           return {
-            ...setLevel,
+            ...dataHere,
             [currPathItem]: result
           }
         }
 
-        if (isArray(setLevel) && isInteger(+currPathItem)) {
+        if (isArray(dataHere) && isInteger(+currPathItem)) {
           const keyAsNum = +currPathItem
 
-          return Object.assign([...setLevel], {
+          return Object.assign([...dataHere], {
             [keyAsNum]: result
           })
         }
 
-        if (setLevel === undefined) {
+        if (dataHere === undefined) {
           return isString(currPathItem)
             ? {
                 [currPathItem]: result
