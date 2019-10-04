@@ -11,8 +11,8 @@ describe('Get - the main getter function', () => {
     expect(get(data_1, ['a', 'b', 'c', 'dx', 'e', 'f1'], 'N/A')).toBe('N/A')
   })
 
-  test('should return null on failure when the default value is not specified', () => {
-    expect(get(data_1, ['a', 'b', 'c', 'dx', 'e', 'f1'])).toBeNull()
+  test('should return undefined on failure when the default value is not specified', () => {
+    expect(get(data_1, ['a', 'b', 'c', 'dx', 'e', 'f1'])).toBeUndefined()
   })
 
   test('should work well with arrays on the way', () => {
