@@ -10,7 +10,7 @@ const data_1 = Object.freeze({
           }
         }
       },
-      b1: 'b1'
+      b1: 'bOne Item'
     }
   }),
   data_2 = Object.freeze({

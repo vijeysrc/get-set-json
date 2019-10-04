@@ -89,3 +89,13 @@ describe('Set - when keys are missing', () => {
     })
   })
 })
+
+describe('Currying', () => {
+  test('should be curriable for get', () => {
+    const dataOneGetter = get(data_1)
+
+    expect(dataOneGetter(['a', 'b1'])).toBe('bOne Item')
+    expect(dataOneGetter(['a', 'b', 'c', 'd', 'e', 'f2'])).toBe('World!!!')
+    expect(dataOneGetter(['a', 'x', 'y'], 'Not found!!!')).toBe('Not found!!!')
+  })
+})
