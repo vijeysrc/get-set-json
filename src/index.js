@@ -8,7 +8,7 @@ const _get = (obj, keys = [], returnOnFailureValue = undefined) =>
   get = (...args) =>
     args.length < 2 ? get.bind(this, ...args) : _get.apply(this, [...args]),
   _set = (inputObject, path = [], value) =>
-    path
+    [...path]
       .reverse()
       .reduce((result, currPathItem, currPathIndex, givenPathReversed) => {
         const headList = givenPathReversed.slice(currPathIndex + 1).reverse(),
