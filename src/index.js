@@ -33,13 +33,15 @@ const _get = (path = [], inputJson, returnOnFailureValue = undefined) =>
         }
 
         if (dataHere === undefined) {
-          return isString(currPathItem)
-            ? {
-                [currPathItem]: result
-              }
-            : Object.assign([], {
-                [currPathItem]: result
-              })
+          if (isString(currPathItem))
+            return {
+              [currPathItem]: result
+            }
+
+          if (isInteger(currPathItem))
+            return Object.assign([], {
+              [currPathItem]: result
+            })
         }
 
         return result
