@@ -1,18 +1,21 @@
 import { isInteger, isString, isObject, isArray } from './utils'
 
-const _get = (obj, keys = [], returnOnFailureValue = undefined) =>
-    keys.reduce(
-      (acc, key) => (acc && acc[key] ? acc[key] : returnOnFailureValue),
-      obj
+const _get = (inputJson, path = [], returnOnFailureValue = undefined) =>
+    path.reduce(
+      (result, currPathItem) =>
+        result && result[currPathItem]
+          ? result[currPathItem]
+          : returnOnFailureValue,
+      inputJson
     ),
   get = (...args) =>
     args.length < 2 ? get.bind(this, ...args) : _get.apply(this, [...args]),
-  _set = (inputObject, path = [], value) =>
+  _set = (inputJson, path = [], value) =>
     [...path]
       .reverse()
       .reduce((result, currPathItem, currPathIndex, givenPathReversed) => {
         const headList = givenPathReversed.slice(currPathIndex + 1).reverse(),
-          dataHere = get(inputObject, headList)
+          dataHere = get(inputJson, headList)
 
         if (isObject(dataHere)) {
           return {
