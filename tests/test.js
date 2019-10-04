@@ -11,14 +11,18 @@ describe('Get - the main getter function', () => {
   })
 
   test('should return null on failure when the default value is not specified', () => {
-    expect(get(data_1, ['a', 'b', 'c', 'dx', 'e', 'f1'])).toBe(null)
+    expect(get(data_1, ['a', 'b', 'c', 'dx', 'e', 'f1'])).toBeNull()
   })
 })
 
 describe('Set - the main setter function', () => {
   test('should set value at the specified path immutably', () => {
-    const setObj = set(data_1, ['a', 'b', 'c', 'd', 'e', 'f1'], 'Greetings!!!')
+    const setObj = set(data_1, ['a', 'b', 'c', 'd', 'e', 'f1'], 'Greetings!!!'),
+      setObj2 = set(data_1, ['a', 'b', 'c', 'd', 'e', 'f1'], 'Greetings!!!')
+
     expect(get(data_1, ['a', 'b', 'c', 'd', 'e', 'f1'])).toBe('Hello')
     expect(get(setObj, ['a', 'b', 'c', 'd', 'e', 'f1'])).toBe('Greetings!!!')
+    expect(setObj).toEqual(setObj2)
+    expect(setObj === setObj2).toBe(false)
   })
 })
