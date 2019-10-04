@@ -1,6 +1,6 @@
 import { isInteger, isString, isObject, isArray } from './utils'
 
-const _get = (inputJson, path = [], returnOnFailureValue = undefined) =>
+const _get = (path = [], inputJson, returnOnFailureValue = undefined) =>
     path.reduce(
       (result, currPathItem) =>
         result && result[currPathItem]
@@ -10,12 +10,12 @@ const _get = (inputJson, path = [], returnOnFailureValue = undefined) =>
     ),
   get = (...args) =>
     args.length < 2 ? get.bind(this, ...args) : _get.apply(this, [...args]),
-  _set = (inputJson, path = [], value) =>
+  _set = (path = [], value, inputJson) =>
     [...path]
       .reverse()
       .reduce((result, currPathItem, currPathIndex, givenPathReversed) => {
         const headList = givenPathReversed.slice(currPathIndex + 1).reverse(),
-          dataHere = get(inputJson, headList)
+          dataHere = get(headList, inputJson)
 
         if (isObject(dataHere)) {
           return {

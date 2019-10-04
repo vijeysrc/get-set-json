@@ -44,6 +44,26 @@ const data_1 = Object.freeze({
     'eight',
     'nine',
     'ten'
+  ]),
+  persons = Object.freeze([
+    {
+      name: {
+        first: 'John',
+        last: 'Smith'
+      }
+    },
+    {
+      name: {
+        first: 'Joanne',
+        last: 'Taylor'
+      }
+    },
+    {
+      name: {
+        first: 'James',
+        last: 'Bond'
+      }
+    }
   ])
 
-export { data_1, data_2, data_3 }
+export { data_1, data_2, data_3, persons }
