@@ -1,4 +1,4 @@
-const data_1 = {
+const data_1 = Object.freeze({
   a: {
     b: {
       c: {
@@ -12,6 +12,6 @@ const data_1 = {
     },
     b1: 'b1'
   }
-}
+})
 
 export { data_1 }

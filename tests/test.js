@@ -1,4 +1,4 @@
-import { get } from '../src/index'
+import { get, set } from '../src/index'
 import { data_1 } from './data'
 
 describe('Get - the main getter function', () => {
@@ -12,5 +12,13 @@ describe('Get - the main getter function', () => {
 
   test('should return null on failure when the default value is not specified', () => {
     expect(get(data_1, ['a', 'b', 'c', 'dx', 'e', 'f1'])).toEqual(null)
+  })
+})
+
+describe('Set - the main setter function', () => {
+  test('should set value at the specified path immutably', () => {
+    const setObj = set(data_1, ['a', 'b', 'c', 'd', 'e', 'f1'], 'Greetings!!!')
+    expect(get(data_1, ['a', 'b', 'c', 'd', 'e', 'f1'])).toEqual('Hello')
+    expect(get(setObj, ['a', 'b', 'c', 'd', 'e', 'f1'])).toEqual('Greetings!!!')
   })
 })
