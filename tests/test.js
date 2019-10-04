@@ -94,6 +94,25 @@ describe('Set - when keys are missing', () => {
       }
     })
   })
+
+  test('should create new levels - when path name is an integer in string format', () => {
+    expect(set(['a', 'b', '2'], 'Greetings', {})).toEqual({
+      // compare with the above
+      a: {
+        b: {
+          '2': 'Greetings'
+        }
+      }
+    })
+
+    expect(set(['a', 'b', '221'], 'Greetings', {})).toEqual({
+      a: {
+        b: {
+          '221': 'Greetings'
+        }
+      }
+    })
+  })
 })
 
 describe('Currying', () => {
