@@ -1,5 +1,6 @@
 import { get, set } from '../src/index'
-import { data_1 } from './data'
+import { data_1, data_2 } from './data'
+import { vo } from '../src/utils'
 
 describe('Get - the main getter function', () => {
   test('should get the value at the specified path for a given object', () => {
@@ -23,6 +24,13 @@ describe('Set - the main setter function', () => {
     expect(get(data_1, ['a', 'b', 'c', 'd', 'e', 'f1'])).toBe('Hello')
     expect(get(setObj, ['a', 'b', 'c', 'd', 'e', 'f1'])).toBe('Greetings!!!')
     expect(setObj).toEqual(setObj2)
-    expect(setObj === setObj2).toBe(false)
+    expect(setObj).not.toBe(setObj2)
+  })
+
+  test('should work with arrays on the way', () => {
+    const setObj = set(data_2, ['a', 'b', 'c', 2, 'd'], 'Greetings')
+
+    expect(get(setObj, ['a', 'b', 'c', 2, 'd'])).toBe('Greetings')
+    expect(get(setObj, ['a', 'b', 'c'])).toBeInstanceOf(Array)
   })
 })

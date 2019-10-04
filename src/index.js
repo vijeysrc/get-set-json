@@ -19,7 +19,7 @@ const get = (obj, keys = [], returnOnFailureValue = null) =>
       if (isArray(setLevel)) {
         const keyAsNum = +curr
 
-        return Object.assign([], setLevel, {
+        return Object.assign([...setLevel], {
           [keyAsNum]: acc
         })
       }
