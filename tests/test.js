@@ -46,4 +46,46 @@ describe('Set - the main setter function', () => {
     expect(get(setObj, ['a', 'b', 'c'])).toBeInstanceOf(Array)
     expect(get(setObj2, ['a', 'b', 'c', 3, 1, 'name'])).toBe('React')
   })
+
+  test('should set not just primitive values but also objects / arrays', () => {
+    expect(
+      set({ a: { b: { c: {} } } }, ['a', 'b', 'c'], {
+        name: 'JavaScript',
+        age: '25'
+      })
+    ).toEqual({
+      a: {
+        b: {
+          c: {
+            name: 'JavaScript',
+            age: '25'
+          }
+        }
+      }
+    })
+
+    expect(set({}, ['a'], [1, 2, 3])).toEqual({
+      a: [1, 2, 3]
+    })
+  })
+})
+
+describe('Set - when keys are missing', () => {
+  test('should create new levels - when path name is a string', () => {
+    expect(set({}, ['a', 'b', 'c'], 'Greetings')).toEqual({
+      a: {
+        b: {
+          c: 'Greetings'
+        }
+      }
+    })
+  })
+
+  test('should create new levels - when path name is an integer', () => {
+    expect(set({}, ['a', 'b', 2], 'Greetings')).toEqual({
+      a: {
+        b: [undefined, undefined, 'Greetings']
+      }
+    })
+  })
 })
