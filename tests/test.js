@@ -91,11 +91,21 @@ describe('Set - when keys are missing', () => {
 })
 
 describe('Currying', () => {
-  test('should be curriable for get', () => {
+  test('should be curriable for get up to 2 params', () => {
     const dataOneGetter = get(data_1)
 
     expect(dataOneGetter(['a', 'b1'])).toBe('bOne Item')
     expect(dataOneGetter(['a', 'b', 'c', 'd', 'e', 'f2'])).toBe('World!!!')
     expect(dataOneGetter(['a', 'x', 'y'], 'Not found!!!')).toBe('Not found!!!')
+  })
+
+  test('should be curriable for set up to 3 params', () => {
+    const path = ['a', 'b', 'c', 'd', 'e', 'f1'],
+      dataOneSetter = set(data_1),
+      dataOneSetterWithPath = dataOneSetter(path),
+      resultObject = dataOneSetterWithPath('Curried here!!!'),
+      getter = get(resultObject)
+
+    expect(getter(path)).toBe('Curried here!!!')
   })
 })
