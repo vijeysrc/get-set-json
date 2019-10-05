@@ -48,7 +48,7 @@ The sequence of keys (of intermediate objects) / indexes (of intermediate arrays
 
 Type: `Object` or `Array`
 
-The source JSON data where this method use.
+The source JSON data.
 
 #### defaultValue
 
