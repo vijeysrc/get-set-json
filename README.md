@@ -11,25 +11,19 @@ $ npm install --save get-set-json
 ## Features
 
 1. This library exposes 4 functions.
-
    - get
    - set
    - getd
    - setd
-
 1. The functions work immutably. This means the source data remains unaffected.
-
 1. The functions are curried up to the mandatory arguments.
-
 1. To help in functional compositions, the functions come in two flavors.
-
    - Data last
      - get
      - set
    - Data first
      - getd
      - setd
-
 1. This is a zero-dependency library.
 
 ## get API
