@@ -1,4 +1,4 @@
-# get-set-json
+# get-set-json [![Build Status](https://api.travis-ci.org/vijeysrc/get-set-json.svg?branch=master)](https://travis-ci.org/vijeysrc/get-set-json)
 
 > Immutable setter and getter library that works on JSON data
 
