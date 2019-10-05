@@ -78,7 +78,7 @@ The value to be set at a given path location.
 
 Type: `Object` or `Array`
 
-The source JSON data where this method use.
+The source JSON data.
 
 ## Usage
 
