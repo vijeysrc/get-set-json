@@ -1,6 +1,6 @@
 /*!
  * 
- *   get-set-json v0.0.1
+ *   get-set-json v0.0.2
  *   
  * 
  *   Copyright (c) Vijey Narayanaswamy (https://github.com/vijeysrc)
