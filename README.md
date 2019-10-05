@@ -38,6 +38,8 @@ $ npm install --save get-set-json
 
 Returns: the value at the given path
 
+Curriable upto first 2 arguments. Since the third argument is optional, currying does not wait for it.
+
 #### path
 
 Type: `Array`
@@ -61,6 +63,8 @@ The optional default value if the path does not exist. If not given, `undefined`
 ### set(path, value, sourceJson) / setd(sourceJson, path, value)
 
 Returns: a new json after setting value at the given path
+
+Curriable for all 3 arguments.
 
 #### path
 
