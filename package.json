@@ -5,7 +5,8 @@
   "main": "build/index.js",
   "scripts": {
     "build": "webpack",
-    "test": "jest --watch",
+    "test": "jest",
+    "test--watch": "jest --watch",
     "prepare": "npm run build"
   },
   "repository": {
