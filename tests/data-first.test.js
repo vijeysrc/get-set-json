@@ -75,6 +75,40 @@ describe('Data first approach - getter / setter', () => {
         a: [1, 2, 3]
       })
     })
+
+    test('should be able to update values at the start or end of an array', () => {
+      expect(
+        setd(
+          {
+            a: {
+              b: ['item 1', 'item 2', 'item 3']
+            }
+          },
+          ['a', 'b', 0],
+          'New item 1'
+        )
+      ).toEqual({
+        a: {
+          b: ['New item 1', 'item 2', 'item 3']
+        }
+      })
+
+      expect(
+        setd(
+          {
+            a: {
+              b: ['item 1', 'item 2', 'item 3']
+            }
+          },
+          ['a', 'b', 2],
+          'New item 3'
+        )
+      ).toEqual({
+        a: {
+          b: ['item 1', 'item 2', 'New item 3']
+        }
+      })
+    })
   })
 
   describe('Set - when keys are missing', () => {
