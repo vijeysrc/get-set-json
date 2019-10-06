@@ -26,9 +26,9 @@ $ npm install --save get-set-json
      - setd
 1. This is a zero-dependency library.
 
-## get API
+## API
 
-### get(path, sourceJson, defaultValue) / getd(sourceJson, path, defaultValue)
+### 1) get(path, sourceJson, defaultValue) / getd(sourceJson, path, defaultValue)
 
 Returns: the value at the given path
 
@@ -52,9 +52,9 @@ Type: `Any`
 
 The optional default value if the path does not exist. If not given, `undefined` is returned.
 
-## set API
+---
 
-### set(path, value, sourceJson) / setd(sourceJson, path, value)
+### 2) set(path, value, sourceJson) / setd(sourceJson, path, value)
 
 Returns: a new json after setting value at the given path
 
