@@ -1,5 +1,6 @@
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
+import { terser } from 'rollup-plugin-terser'
 
 import packageJson from './package.json'
 
@@ -9,11 +10,13 @@ export default {
     {
       file: packageJson.main,
       format: 'cjs',
+      plugins: [terser()],
       sourcemap: true
     },
     {
       file: packageJson.module,
       format: 'esm',
+      plugins: [terser()],
       sourcemap: true
     }
   ],

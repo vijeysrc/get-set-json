@@ -11,7 +11,7 @@
     "prebuild": "jest && rm -rf dist",
     "build": "rollup -c --environment NODE_ENV:production",
     "test": "jest --watch",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -37,7 +37,8 @@
     "babel-loader": "^8.1.0",
     "babel-preset-minify": "^0.5.1",
     "jest": "^26.0.1",
-    "rollup": "^2.9.0"
+    "rollup": "^2.9.0",
+    "rollup-plugin-terser": "^6.1.0"
   },
   "dependencies": {}
 }
