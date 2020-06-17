@@ -1,6 +1,6 @@
 {
   "name": "get-set-json",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Immutable setter and getter library that works on JSON data",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
