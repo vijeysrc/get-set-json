@@ -1,6 +1,5 @@
 import { get, set } from '../src/index'
 import { data_1, data_2, data_3, persons } from './data'
-import { vo } from '../src/utils'
 
 const missingData = '**Missing Data**'
 
