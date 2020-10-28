@@ -10,7 +10,8 @@
   "scripts": {
     "prebuild": "jest && rm -rf dist",
     "build": "rollup -c --environment NODE_ENV:production",
-    "test": "jest --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "prepublishOnly": "npm run build"
   },
   "repository": {
